@@ -94,7 +94,7 @@ NFQWS_OPT="
 --filter-tcp=80,443 --dpi-desync=fake,disorder2 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig --new
 --filter-udp=50000-50099 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-any-protocol --dpi-desync-cutoff=n4 --new ^
 --filter-udp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake --dpi-desync-repeats=11 --dpi-desync-fake-quic="/opt/zapret/files/fake/quic_initial_www_google_com.bin" --new ^
---filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=11""
+--filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=11"
 # none,ipset,hostlist,autohostlist
 MODE_FILTER=autohostlist
 
