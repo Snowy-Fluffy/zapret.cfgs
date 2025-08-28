@@ -70,7 +70,7 @@ TPWS_OPT="
 
 NFQWS_ENABLE=1
 # redirect outgoing traffic with connbytes limiter applied in both directions.
-NFQWS_PORTS_TCP=80,443
+NFQWS_PORTS_TCP=80,443, 50000-50099
 NFQWS_PORTS_UDP=443,50000-65535
 # PKT_OUT means connbytes dir original
 # PKT_IN means connbytes dir reply
@@ -89,10 +89,11 @@ NFQWS_UDP_PKT_IN=0
 # hostlist markers are replaced to empty string if MODE_FILTER does not satisfy
 # <HOSTLIST_NOAUTO> appends ipset/zapret-hosts-auto.txt as normal list
 NFQWS_OPT="
---filter-udp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-fake-quic="/opt/zapret/files/fake/quic_initial_www_google_com.bin" --new ^
---filter-udp=50000-65535 --hostlist="/opt/zapret/ipset/ipset-discord.txt" --dpi-desync=fake --dpi-desync-any-protocol --dpi-desync-cutoff=d3 --dpi-desync-repeats=6 --new ^
---filter-tcp=80 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake,split2 --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig --new ^
---filter-l3=ipv4 --filter-tcp=443 --dpi-desync=syndata"
+--filter-tcp=80,443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,sniext+1,host+1,midsld-2,midsld,midsld+2,endhost-1 --dpi-desync-ttl=4 --dpi-desync-fake-tls=0x00000000 --dpi-desync-fake-tls=! --dpi-desync-fake-tls-mod=rnd,rndsni --new ^ 
+--filter-udp=80,443  --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake,multidisorder --dpi-desync-split-pos=1,sniext+1,host+1,midsld-2,midsld,midsld+2,endhost-1 --dpi-desync-ttl=4 --dpi-desync-fake-tls=0x00000000 --dpi-desync-fake-tls=! --dpi-desync-fake-tls-mod=rnd,rndsni,dupsid --new ^ 
+--filter-udp=50000-50099 --filter-l7=discord,stun --dpi-desync=fake"
+
+
 # none,ipset,hostlist,autohostlist
 MODE_FILTER=autohostlist
 
