@@ -15,6 +15,7 @@ api.ccbluex.net
 sessionserver.mojang.com
 api.minecraftservices.com
 curseforge.com
+mediafilez.forgecdn.net
 api.github.com
 dl.liquidbounce.net
 gnu.org
