@@ -9,10 +9,10 @@ twimg.com
 twitpic.com
 twitter.biz
 twitter.com
-twitter.jp
 twittercommunity.com
 twitterflightschool.com
 twitterinc.com
+twitter.jp
 twitteroauth.com
 twitterstat.us
 twtrdns.net
