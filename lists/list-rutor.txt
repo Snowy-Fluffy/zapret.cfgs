@@ -1,8 +1,8 @@
+rutor.co
 rutor.info
 rutor.is
-rutor.org
-rutor.nl
-rutor.xyz
-rutor.one
-rutor.co
 rutor.lib
+rutor.nl
+rutor.one
+rutor.org
+rutor.xyz

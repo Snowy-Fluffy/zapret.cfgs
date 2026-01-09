@@ -10,8 +10,8 @@ ooklaserver.net
 pingtest.net
 speedtest.co
 speedtest.com
-speedtest.net
 speedtestcustom.com
 speedtestlab.net
+speedtest.net
 webtest.net
 www.speedtest.net.cdn.cloudflare.net
