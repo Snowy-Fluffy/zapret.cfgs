@@ -89,12 +89,12 @@ NFQWS_UDP_PKT_IN=0
 # hostlist markers are replaced to empty string if MODE_FILTER does not satisfy
 # <HOSTLIST_NOAUTO> appends ipset/zapret-hosts-auto.txt as normal list
 NFQWS_OPT="
---filter-tcp=80 --dpi-desync=fake,split2 --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig --hostlist-auto="/opt/zapret/files/fake/autohostlist.txt" --new ^
---filter-tcp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake,split2 --dpi-desync-repeats=11 --dpi-desync-fooling=md5sig --dpi-desync-fake-tls="/opt/zapret/files/fake/tls_clienthello_www_google_com.bin" --new ^
+--filter-tcp=80 --dpi-desync=fake,split2 --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig --hostlist-auto="/opt/zapret/files/fake/autohostlist.txt" --hostlist-exclude="/opt/zapret/ipset/zapret-hosts-user-exclude.txt" --new ^
+--filter-tcp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake,split2 --dpi-desync-repeats=11 --dpi-desync-fooling=md5sig --dpi-desync-fake-tls="/opt/zapret/files/fake/tls_clienthello_www_google_com.bin" --hostlist-exclude="/opt/zapret/ipset/zapret-hosts-user-exclude.txt" --new ^
 --filter-tcp=80,443 --dpi-desync=fake,disorder2 --dpi-desync-autottl=2 --dpi-desync-fooling=md5sig --new
---filter-udp=50000-50099 --hostlist="/opt/zapret/ipset/ipset-discord.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-any-protocol --dpi-desync-cutoff=n4 --new ^
---filter-udp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake --dpi-desync-repeats=11 --dpi-desync-fake-quic="/opt/zapret/files/fake/quic_initial_www_google_com.bin" --new ^
---filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=11"
+--filter-udp=50000-50099 --hostlist="/opt/zapret/ipset/ipset-discord.txt" --dpi-desync=fake --dpi-desync-repeats=6 --dpi-desync-any-protocol --dpi-desync-cutoff=n4 --hostlist-exclude="/opt/zapret/ipset/zapret-hosts-user-exclude.txt" --new ^
+--filter-udp=443 --hostlist="/opt/zapret/ipset/zapret-hosts-user.txt" --dpi-desync=fake --dpi-desync-repeats=11 --dpi-desync-fake-quic="/opt/zapret/files/fake/quic_initial_www_google_com.bin" --hostlist-exclude="/opt/zapret/ipset/zapret-hosts-user-exclude.txt" --new ^
+--filter-udp=443 --dpi-desync=fake --dpi-desync-repeats=11 --hostlist-exclude="/opt/zapret/ipset/zapret-hosts-user-exclude.txt""
 # none,ipset,hostlist,autohostlist
 MODE_FILTER=autohostlist
 
